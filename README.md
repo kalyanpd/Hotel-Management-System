@@ -1,6 +1,6 @@
 # Hotel-Management-System
 The project is implemented using Swing GUI widget toolkit and MYSQL database. There are Cloud-based hotel software saves time spent on manual updates
-The System provides the access:-
+The System provides the access:
 (i) Add room details, easily update, delete records & view all records.
 (ii) Customer Check in insert all record including room details,
 (iii) Customer Check out and Calculate bill automatically.
