@@ -25,7 +25,7 @@ services:
       DB_USER: hoteluser
       DB_PASS: hotelpass
     ports:
-      - "8080:8080"
+      - "8082:8080"
     networks:
       - hotelnet
 
