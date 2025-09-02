@@ -1,0 +1,37 @@
+version: "3.8"
+services:
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: hotel
+      MYSQL_USER: hoteluser
+      MYSQL_PASSWORD: hotelpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+  app:
+    build: .
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: hotel
+      DB_USER: hoteluser
+      DB_PASS: hotelpass
+    ports:
+      - "8080:8080"
+    networks:
+      - hotelnet
+
+volumes:
+  db_data:
+
+networks:
+  hotelnet:
+
